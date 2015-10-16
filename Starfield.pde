@@ -2,7 +2,7 @@ Particle[] poop = new Particle[500];
 void setup()
 {
 	size(1000,1000);
-	frameRate(40);
+	frameRate(60);
 		for(int i=2;i<poop.length;i++){
 			if(i%2==0){
 			poop[i]=new NormalParticle();
@@ -44,7 +44,7 @@ class NormalParticle implements Particle
 			x=500;
 			y=500;
 			angle=(Math.random()*(Math.PI*2));
-			speed=(Math.random()*8);
+			speed=(Math.random()*6);
 			r=(int)(Math.random()*256);
 			g=(int)(Math.random()*256);
 			b=(int)(Math.random()*256);
@@ -55,13 +55,13 @@ class NormalParticle implements Particle
 			x+=Math.cos(angle)*speed;
 			y+=Math.sin(angle)*speed;
 			angle+=0.02;
-			speed-=0.005;
+			//speed-=0.005;
 		}
 
 		public void show(){
 			noStroke();
 			fill(r,g,b,a);
-			ellipse((int)x,(int)y,5,5);
+			ellipse((float)x,(float)y,5,5);
 		}
 
 		public void setA(int a1){
@@ -78,7 +78,7 @@ class HyperspaceParticle implements Particle
 			x=500;
 			y=500;
 			angle=(Math.random()*(Math.PI*2));
-			speed=(Math.random()*8);
+			speed=(Math.random()*6);
 			r=255;
 			g=255;
 			b=255;
@@ -93,7 +93,7 @@ class HyperspaceParticle implements Particle
 		public void show(){
 			noStroke();
 			fill(r,g,b,a);
-			ellipse((int)x,(int)y,3,3);
+			ellipse((float)x,(float)y,3,3);
 			/*if((x<-100||x>1100)&&(y<-100||y>1100)) {
 				x=500;
 				y=500;
@@ -133,7 +133,7 @@ class OddballParticle implements Particle
 		public void show(){
 			noStroke();
 			fill(255,225,225,a);
-			ellipse((int)x,(int)y,20,20);
+			ellipse((float)x,(float)y,20,20);
 		}
 
 		public void setA(int a1){
@@ -145,7 +145,7 @@ class JumboParticle extends NormalParticle
 	public void show(){
 		noStroke();
 		fill(50,205,250,a);
-		ellipse((int)x,(int)y,60,60);
+		ellipse((float)x,(float)y,60,60);
 	}
 
 }
