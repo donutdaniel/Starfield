@@ -34,6 +34,17 @@ void draw()
 			poop[i].show();
 
 	}
+	if (keyPressed&&key=='r'){
+		for(int i=2;i<poop.length;i++){
+			if(i%2==0){
+			poop[i]=new NormalParticle();
+		}else {
+			poop[i]=new HyperspaceParticle(); 
+		}
+		}
+		poop[0]=new OddballParticle();
+		poop[1]=new JumboParticle();
+	}
 } 
 class NormalParticle implements Particle
 {
@@ -55,7 +66,8 @@ class NormalParticle implements Particle
 			x+=Math.cos(angle)*speed;
 			y+=Math.sin(angle)*speed;
 			angle+=0.02;
-			//speed-=0.005;
+			speed-=0.003;
+
 		}
 
 		public void show(){
